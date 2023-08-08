@@ -1,0 +1,20 @@
+
+.cartNotification{
+    background-color: red;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.linkNavegacion {
+    text-decoration: none;
+    color: white
+}
+
+.logoSize {
+    width: 6rem;
+}
+
+.background {
+    background-color: rgb(0, 0, 0);
+};
+

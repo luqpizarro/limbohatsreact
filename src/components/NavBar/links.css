@@ -1,0 +1,8 @@
+.linkNavegacion {
+    text-decoration: none;
+    color: white
+}
+
+.linkNavegacion:hover {
+    color: grey
+}
