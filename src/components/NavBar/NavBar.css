@@ -1,4 +1,9 @@
 
+.ulNavbar{
+    margin: 0;
+    padding: 0;
+}
+
 .cartNotification{
     background-color: red;
     text-align: center;

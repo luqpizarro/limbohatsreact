@@ -1,4 +1,4 @@
-import "./links.css"
+import "./link.css"
 
 
 const Link = ({link, nombre}) => { 

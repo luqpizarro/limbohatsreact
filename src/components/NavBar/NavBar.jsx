@@ -1,7 +1,7 @@
 import './NavBar.css';
 import Logo from "../../assets/logo.png";
 
-import Link from "./Links.jsx"
+import Link from "../Link/Link.jsx"
 import Carrito from "../CartWidget/CartWidget.jsx"
 
 const Navbar = () => {
@@ -13,17 +13,17 @@ const Navbar = () => {
                     <img className='logoSize' src={Logo} alt="limbo logo" />
                 </a>
                 <li className='d-flex align-items-center me-2'>
-                    <ul className='text-white'> 
+                    <ul className='text-white ulNavbar mx-3'> 
                         <Link 
                             link="#"
                             nombre="Pulseras" /> 
                     </ul>
-                    <ul className='text-white'> 
+                    <ul className='text-white ulNavbar mx-3'> 
                         <Link 
                             link="#" 
                             nombre="Cadenas" /> 
                     </ul>
-                    <ul className='text-white'> 
+                    <ul className='text-white ulNavbar mx-3'> 
                         <Link 
                             link="#" 
                             nombre="Gorras Lana" /> 
