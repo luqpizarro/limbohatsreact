@@ -28,7 +28,7 @@ const Navbar = () => {
                             link="#" 
                             nombre="Gorras Lana" /> 
                     </ul>
-                    <ul className='text-white mx-3'>
+                    <ul className='text-white mx-3 ulNavbar'>
                         <button type="button" className="btn position-relative">
                             <Carrito />
                             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

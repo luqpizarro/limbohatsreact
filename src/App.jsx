@@ -2,6 +2,7 @@ import './App.css'
 import Advertisements from './components/NavBar/Anuncment/Advertisements'
 import Navbar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import ItemDetail from './components/ItemDetail/ItemDetail'
 
 
 
@@ -11,8 +12,9 @@ function App() {
     <>
       <Advertisements />
       <Navbar />
-      <ItemListContainer greeting="Bienvenido a Limbo Hats" />
-    </>
+      {/*<ItemListContainer greeting="Bienvenido a Limbo Hats" />*/}
+      <ItemDetail />
+  </>
   )
 }
 

@@ -1,0 +1,12 @@
+.cardStyle {
+    padding: 3vh;
+    padding-bottom: 2vh;
+    background-color: rgba(0, 0, 0, 0.644);
+    color: white;
+    border-radius: 10px;
+    border: solid 2px black;
+}
+
+.h-desc{
+    height: 5rem;
+}
