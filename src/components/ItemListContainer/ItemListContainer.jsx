@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import "./ItemListContainer.css"
-import ItemList from "../ItemList/ItemList"
+import { useParams } from "react-router-dom";
+import ItemList from "./ItemList/ItemList";
 import { getProducts } from "../../services/products";
+import "./ItemListContainer.css";
 
 
 
@@ -9,11 +10,16 @@ const ItemListContainer = ({greeting}) => {
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true)
+    const {categoryId} = useParams();
 
     useEffect(() => {
-        getProducts()
+
+        setLoading(true)
+
+        getProducts(categoryId)
             .then((result) => {
-                setProducts(result.products);
+                setProducts(result);
+                setLoading(false)
             })
             .catch((error) => {
                 console.error(error)
@@ -21,13 +27,12 @@ const ItemListContainer = ({greeting}) => {
             .finally(() =>{
                 setLoading(false)
             })
-    }, [])
+    }, [categoryId])
 
     return(
-        <div className="">
+        <div className="backgroundColor p-2">
             <h1 className="text-center">{greeting}</h1>
             <ItemList products={products} loading={loading} />
-
         </div>
     )
 }
