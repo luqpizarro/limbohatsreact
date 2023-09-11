@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList/ItemList";
 import { getProducts } from "../../services/products";
@@ -14,25 +14,31 @@ const ItemListContainer = ({greeting}) => {
     const { categoryId } = useParams();
     
 
-    useEffect(() => {
-        const db = getFirestore();
-        const productsCollection = collection(db, "items")
+    
+        useEffect(() => {
+            const db = getFirestore();
+            const productsCollection = categoryId
+                ? query(collection(db, "items"), where('category', "==", categoryId))
+                : collection(db, "items");
         
-        setLoading(true);
-
-        getDocs(productsCollection)
-            .then((snapshot) => {
+            setLoading(true);
+            
+            ;
+            getDocs(productsCollection)
+                .then((snapshot) => {
                 
-                const itemFromSnapshot = snapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data()
-                }))
+                    const itemFromSnapshot = snapshot.docs.map((doc) => ({
+                        id: doc.id,
+                        ...doc.data()
+                    }))
 
-                setProducts(itemFromSnapshot);
-                setLoading(false);
-            })
-    }, [categoryId])
+                    setProducts(itemFromSnapshot);
+                    setLoading(false);
+                })
+        }, [categoryId])
+    
 
+    
     {/*
         useEffect(() => {
 
@@ -51,6 +57,8 @@ const ItemListContainer = ({greeting}) => {
                 })
         }, [categoryId])
     */}
+    
+
 
     return(
         <div className="backgroundColor p-2">

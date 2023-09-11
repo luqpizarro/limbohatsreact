@@ -12,13 +12,13 @@ const Cart = () => {
             <h1>Cart</h1>
             <div>
                 <p>no aparece nada</p>
-                {cart.map((item) => {
-                    <ul>
-                        <li>
-                            <p>hola perro</p>
-                        </li>
-                    </ul>
-            })}
+                {cart.map((item) => (
+                    <div key={item.id}>
+                        
+                        <p>hola perro {item.quantity}</p>
+                        
+                    </div>
+            ))}
             </div>
             
             {/*<button onClick={addItem}> Agregar</button>
