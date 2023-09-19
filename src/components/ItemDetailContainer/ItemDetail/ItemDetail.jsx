@@ -1,8 +1,11 @@
 import { useState, useContext } from "react"
 import { Link } from "react-router-dom"
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./ItemDetail.css"
 import ItemCount from "../../ItemCount/ItemCount"
 import CartContext from "../../../context/CartContext"
+import BtnBack from "../../BtnBack/BtnBack";
 
 
 
@@ -16,13 +19,19 @@ const ItemDetail = ({ product, isloading }) => {
         const item = {
             id: product.id,
             name: product.name,
-            price: product.price
+            price: product.price,
+            img: product.img,
+            description: product.description,
         }
 
         addItem(item, quantity)
-        console.log(item)
+        toast.info("Producto Agregado al Carrito", {
+            theme: "dark",
+            icon: "🚀",
+            autoClose: 1500
+        })
     }
-    
+
     if (isloading) {
         return <h2 className="text-center">Cargando detalle...</h2>
     }
@@ -33,8 +42,9 @@ const ItemDetail = ({ product, isloading }) => {
     
     return (
         <div>
-
+            
             <div key={product.id} className="backgroundDetail text-white p-5">
+                <BtnBack to="/" />
                 <div className="container d-flex flex-column flex-lg-row justify-content-center mt-5">
                     <div className="me-2 col-7 text-center">
                         <img src={`../src/assets/gorras/${product.img}`} className="imgStyle" alt="gorra" />
@@ -47,10 +57,12 @@ const ItemDetail = ({ product, isloading }) => {
                         <div className="my-4">
                             <ItemCount onAdd={handleOnAdd}/>
                             {quantityAdded > 0 ? 
-                                <Link to='/cart' className="btn btn-primary ms-2">Comprar ahora</Link> : 
-                                <Link to='/cart' className="btn btn-primary disabled ms-2">Comprar ahora</Link>}
-                            {/*<button className="btn btn-success disabled me-2">Añadir al Carrito</button>*/}
-                            {/*<button type="submit" className="btn btn-primary disabled ms-2">Comprar Ahora</button>*/}
+                                <Link
+                                    to='/cart'
+                                    className="btn btn-light container m-1 col-7">Ir al Carrito</Link> : 
+                                <Link
+                                    to='/cart'
+                                    className="btn btn-light container m-1 col-7 disabled">Ir al Carrito</Link>}
                         </div>
                         <div className="my-5">
                             <h5>Descripcion:</h5>

@@ -2,8 +2,15 @@ import Item from "../Item/Item"
 
 const ItemList = ({ products, loading }) => {
     
+        
+
     if (loading) {
-        return  <h2 className="text-center">Cargando...</h2>
+        setTimeout(() => { 
+            return (
+                <div class="spinner-border text-secondary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                </div>)
+        }, 2000)
     }
 
     return(

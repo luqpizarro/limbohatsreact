@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import './NavBar.css';
 import Logo from "../../assets/logo.png";
 import Link from "../Link/Link.jsx"
-import Carrito from "../CartWidget/CartWidget.jsx"
+import CartWidget from "../CartWidget/CartWidget.jsx"
 
 const Navbar = () => {
 
@@ -36,10 +36,7 @@ const Navbar = () => {
                     </ul>
                     <ul className='text-white mx-3 ulNavbar'>
                         <button type="button" className="btn position-relative">
-                            <Carrito />
-                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    +1
-                            </span>
+                            <CartWidget />
                         </button>
                     </ul>
                 </li>   

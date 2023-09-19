@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList/ItemList";
-import { getProducts } from "../../services/products";
 import "./ItemListContainer.css";
 
 
@@ -36,29 +35,6 @@ const ItemListContainer = ({greeting}) => {
                     setLoading(false);
                 })
         }, [categoryId])
-    
-
-    
-    {/*
-        useEffect(() => {
-
-            setLoading(true)
-
-            getProducts(categoryId)
-                .then((result) => {
-                    setProducts(result);
-                    setLoading(false)
-                })
-                .catch((error) => {
-                    console.error(error)
-                })
-                .finally(() => {
-                    setLoading(false)
-                })
-        }, [categoryId])
-    */}
-    
-
 
     return(
         <div className="backgroundColor p-2">
