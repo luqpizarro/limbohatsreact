@@ -8,9 +8,11 @@ const CartProvider = ({ children }) => {
 
     const addItem = (id, quantity) => {
 
+        
         const itemInCart = cart.find((item) => item.id === id)
         if (itemInCart) {
             const newCart = cart.map((item) => {
+
                 if (item.id === id) {
                     return {
                         ...item,
@@ -19,8 +21,6 @@ const CartProvider = ({ children }) => {
                 }
                 return item
             })
-
-
             setCart(newCart)
             
         } else {
@@ -49,7 +49,7 @@ const CartProvider = ({ children }) => {
     
     return (
         <CartContext.Provider
-            value={{ cart, addItem, removeItem, clear, isInCart, clear}}
+            value={{ cart, addItem, removeItem, clear, isInCart}}
         >
             {children}
         </CartContext.Provider>

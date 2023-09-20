@@ -5,7 +5,7 @@ import { Instagram, Facebook } from 'react-bootstrap-icons'
 
 const Footer = () => {
     return (
-        <div className="position-relative">
+
         <footer className={`container-fluid ${styles.footer} p-1`}>
             <ul className="nav justify-content-center border-bottom pb-1 p-2 m-1">
                 <li className="px-2 mb-2">
@@ -22,7 +22,7 @@ const Footer = () => {
 
             <p className="text-center text-light">Copyright © 2023 Limbo Hats · Todos los derechos reservados</p>
             </footer>
-        </div>
+
     )
 }
 
