@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "../../context/CartContext";
-import Cart from "../../assets/cart.png"
-import "./CartWidget.css"
+import Cart from "../../assets/cart.png";
 import { cartQuantity } from "../../utils";
 
 const CartWidget = () => {
     const {cart} = useContext(CartContext);
 
-    const quantity = cartQuantity(cart)
+    const quantity = cartQuantity(cart);
 
     return (
         <Link to={'/cart'}>
@@ -17,8 +16,8 @@ const CartWidget = () => {
                 +{quantity}
             </span> : null}
             
-        </Link> 
-    )
+        </Link>
+    );
 };
 
 export default CartWidget

@@ -1,20 +1,20 @@
-import { useState, useContext } from "react"
-import { Link } from "react-router-dom"
+import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import "./ItemDetail.css"
-import ItemCount from "../../ItemCount/ItemCount"
-import CartContext from "../../../context/CartContext"
+import ItemCount from "../../ItemCount/ItemCount";
+import CartContext from "../../../context/CartContext";
 import BtnBack from "../../BtnBack/BtnBack";
+import styles from "./itemDetail.module.css";
 
 
 
-const ItemDetail = ({ product, isloading }) => {
-    const [quantityAdded, setQuantityAdded] = useState(0)
-    const { addItem } = useContext(CartContext)
+const ItemDetail = ({ product }) => {
+    const [quantityAdded, setQuantityAdded] = useState(0);
+    const { addItem } = useContext(CartContext);
 
     const handleOnAdd = (quantity) => {
-        setQuantityAdded(quantity)
+        setQuantityAdded(quantity);
 
         const item = {
             id: product.id,
@@ -22,32 +22,27 @@ const ItemDetail = ({ product, isloading }) => {
             price: product.price,
             img: product.img,
             description: product.description,
-        }
+        };
 
         addItem(item, quantity)
         toast.info("Producto Agregado al Carrito", {
             theme: "dark",
             icon: "🚀",
             autoClose: 1500
-        })
-    }
-
-    if (isloading) {
-        return <h2 className="text-center">Cargando detalle...</h2>
-    }
+        });
+    };
 
     if (!product) {
         return <p>Producto no encontrado</p>
-    }
+    };
     
     return (
         <div>
-            
-            <div key={product.id} className="backgroundDetail text-white p-5">
+            <div key={product.id} className="text-white p-5">
                 <BtnBack to="/" />
                 <div className="container d-flex flex-column flex-lg-row justify-content-center mt-5">
                     <div className="me-2 col-7 text-center">
-                        <img src={`../src/assets/gorras/${product.img}`} className="imgStyle" alt="gorra" />
+                        <img src={`../src/assets/gorras/${product.img}`} className={styles.imgStyle} alt="gorra" />
                     </div>
                     <div className="ms-2 col-5">
                         <h2>{product.name}</h2>
@@ -75,7 +70,7 @@ const ItemDetail = ({ product, isloading }) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default ItemDetail;

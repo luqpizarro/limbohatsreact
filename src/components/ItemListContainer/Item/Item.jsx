@@ -1,5 +1,5 @@
-import {Link} from 'react-router-dom'
-import styles from "./Item.module.css"
+import {Link} from 'react-router-dom';
+import styles from "./Item.module.css";
 
 const Item = (product) => {
     return (
@@ -25,7 +25,7 @@ const Item = (product) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Item
+export default Item;

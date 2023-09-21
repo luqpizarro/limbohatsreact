@@ -1,18 +1,6 @@
-import Item from "../Item/Item"
+import Item from "../Item/Item";
 
-const ItemList = ({ products, loading }) => {
-    
-        
-
-    if (loading) {
-        setTimeout(() => { 
-            return (
-                <div class="spinner-border text-secondary" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                </div>)
-        }, 2000)
-    }
-
+const ItemList = ({ products}) => {
     return(
         <div className="d-flex flex-wrap justify-content-center m-2">
             {/*loading && <p> Cargando...</p>*/}
@@ -32,7 +20,7 @@ const ItemList = ({ products, loading }) => {
             ))}
             
         </div>
-    )
-}
+    );
+};
 
-export default ItemList
+export default ItemList;

@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from "./Field.module.css"
+import React from 'react';
+import styles from "./Field.module.css";
 
 const Field = ({ label, name, onChange, type, placeholder }) => {
     return (
@@ -10,4 +10,4 @@ const Field = ({ label, name, onChange, type, placeholder }) => {
     );
 };
 
-export default Field
+export default Field;

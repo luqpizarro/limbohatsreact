@@ -1,4 +1,4 @@
-export const cartQuantity = (cart) => {
+;export const cartQuantity = (cart) => {
     return cart.reduce((acc, item) => acc + item.quantity, 0);
 }
 
@@ -10,6 +10,5 @@ export const mapCartToToOrderItems = (cart) => {
         quantity: item.quantity,
         price: item.id.price,
         title: item.id.name,
-            
-    }))
-}
+    }));
+};

@@ -1,5 +1,5 @@
-import "./link.css"
-import { NavLink } from "react-router-dom"
+import "./link.css";
+import { NavLink } from "react-router-dom";
 
 
 const Link = ({link, nombre}) => { 
@@ -8,6 +8,6 @@ const Link = ({link, nombre}) => {
         className={({ isActive }) => (isActive ? "linkNavegacion" : "link")}>
         {nombre}
     </NavLink> 
-}
+};
 
 export default Link;

@@ -1,21 +1,21 @@
-import { useState } from "react"
+import { useState } from "react";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import styles from "./itemCount.module.css"
+import styles from "./itemCount.module.css";
 
 
 const ItemCount = ({onAdd, initial = 0}) => {
-    const [count, setCount] = useState(initial)
+    const [count, setCount] = useState(initial);
     
 
 
     const aumentar = () => {
-        setCount( count +1 )
+        setCount( count +1 );
     };
 
     const reducir = () => {
         if (count > 0)
-        setCount( count -1)
+        setCount( count -1);
     };
 
 
@@ -34,10 +34,8 @@ const ItemCount = ({onAdd, initial = 0}) => {
             <div>
                 { count >= 1 && <ToastContainer />}
             </div>
-            
         </div>
-        
-    )
-}
+    );
+};
 
 export default ItemCount;

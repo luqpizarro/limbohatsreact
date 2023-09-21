@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../context/CartContext";
-import styles from "./Cart.module.css"
+import styles from "./Cart.module.css";
 
 
 const Cart = () => {
@@ -33,7 +33,7 @@ const Cart = () => {
                 <div className="my-5 d-flex justify-content-center">   
                     {cart.length == 0 ?
                         <div>
-                            <button onClick={clear} className="btn btn-success" disabled> Eliminar todo </button>
+                            <button onClick={clear} className="btn btn-danger" disabled> Eliminar Carrito </button>
                         </div>  :
                         <div>
                             <button onClick={clear} className="btn btn-danger"> Eliminar Carrito </button>
@@ -42,7 +42,7 @@ const Cart = () => {
                 </div>
             </div>  
         </div>
-    )
-}
+    );
+};
 
-export default Cart
+export default Cart;

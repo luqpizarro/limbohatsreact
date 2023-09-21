@@ -1,15 +1,15 @@
-import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore"
-import { useState, useContext } from "react"
-import CartContext from "../../context/CartContext"
-import { cartTotal, mapCartToToOrderItems } from "../../utils"
-import Field from "./Field/Field"
-import BtnBack from "../BtnBack/BtnBack"
-import styles from "./Checkout.module.css"
+import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { useState, useContext } from "react";
+import CartContext from "../../context/CartContext";
+import { cartTotal, mapCartToToOrderItems } from "../../utils";
+import Field from "./Field/Field";
+import BtnBack from "../BtnBack/BtnBack";
+import styles from "./Checkout.module.css";
 
 
 const Checkout = () => {
-    const [loading, setLoading] = useState(false)
-    const [orderId, setOrderId] = useState("")
+    const [loading, setLoading] = useState(false);
+    const [orderId, setOrderId] = useState("");
     const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -17,7 +17,7 @@ const Checkout = () => {
     });
     const { name, email, phone } = formState;
 
-    const { cart, clear } = useContext(CartContext)
+    const { cart, clear } = useContext(CartContext);
 
         const onChange = (event) => {
         setFormState({
@@ -34,14 +34,13 @@ const Checkout = () => {
 
         if (isFormValid) {
             const order = {
-            buyer: formState,
-            items: mapCartToToOrderItems(cart),
-            total,
-            date: serverTimestamp(),
-            }
+                buyer: formState,
+                items: mapCartToToOrderItems(cart),
+                total,
+                date: serverTimestamp(),
+            };
 
-            console.log(order)
-            const db = getFirestore();
+            const db = getFirestore();;
 
             const orderCollection = collection(db, "orders");
 
@@ -53,27 +52,26 @@ const Checkout = () => {
                 .catch((err) => {
                     console.log("Error al crear la orden:", err)
                 })
-            clear()
-        }        
-    }
+            clear();
+        };
+    };
 
     if (loading) {
         return <h2>Se esta generando la orden...</h2>
-    }
+    };
 
     if (orderId) {
-        return <h2 className={`text-center pt-5 ${styles.window}`}> Orden generada con el id: {orderId}</h2>
-    }
+        return <h2 className={`text-center pt-5 mb-0 ${styles.window}`}> Orden generada con el id: {orderId}</h2>
+    };
 
 
-    const total = cartTotal(cart)
+    const total = cartTotal(cart);
 
 
     return (
         
         <div className={styles.window}>
             <BtnBack to="/cart" />
-            
 
             <form onSubmit={createOrder}>
                 <h2 className="text-center mt-3">Ingresa tus datos para completar la compra 🛍</h2>
@@ -115,7 +113,7 @@ const Checkout = () => {
             <h3 className="mx-auto my-3">Total de la Compra: € {total}</h3>
             
         </div>
-    )
-}
+    );
+};
 
-export default Checkout
+export default Checkout;

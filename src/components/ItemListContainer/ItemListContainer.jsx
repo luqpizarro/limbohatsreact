@@ -1,47 +1,36 @@
 import { useState, useEffect } from "react";
-import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList/ItemList";
-import "./ItemListContainer.css";
+import IsLoading from "../IsLoading/IsLoading";
+import { getProducts } from "../../services/products";
+import styles from "./ItemListContainer.module.css";
 
 
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
 
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
     const { categoryId } = useParams();
-    
-
-    
-        useEffect(() => {
-            const db = getFirestore();
-            const productsCollection = categoryId
-                ? query(collection(db, "items"), where('category', "==", categoryId))
-                : collection(db, "items");
         
+        useEffect(() => {
             setLoading(true);
-            
-            ;
-            getDocs(productsCollection)
-                .then((snapshot) => {
-                
-                    const itemFromSnapshot = snapshot.docs.map((doc) => ({
-                        id: doc.id,
-                        ...doc.data()
-                    }))
 
-                    setProducts(itemFromSnapshot);
+            getProducts(categoryId)
+                .then((response) => {
+                    setProducts(response);
                     setLoading(false);
                 })
-        }, [categoryId])
+        }, [categoryId]);
 
     return(
-        <div className="backgroundColor p-2">
-            <h1 className="text-center">{greeting}</h1>
-            <ItemList products={products} loading={loading} />
+        <div className={`${styles.backgroundColor} p-2`}>
+            {loading ?
+                <IsLoading /> :
+                <ItemList products={products} />
+            }
         </div>
-    )
-}
+    );
+};
 
-export default ItemListContainer
+export default ItemListContainer;
