@@ -71,6 +71,8 @@ Proyecto creado por Lucas Pizarro.
 
 ## Demo
 
+[screen-capture.webm](https://github.com/luqpizarro/limbohatsreact/assets/74073809/c7190390-d446-4e67-b2e7-10a9268ecf55)
+
 ## Agradecimientos
 
 Gracias Nico por las enseñanzas y Santi para dar siempre una mano.
