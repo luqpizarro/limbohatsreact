@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ItemCount from "../../ItemCount/ItemCount";
 import CartContext from "../../../context/CartContext";
 import BtnBack from "../../BtnBack/BtnBack";
-import styles from "./itemDetail.module.css";
+import styles from './itemDetail.module.css';
 
 
 
