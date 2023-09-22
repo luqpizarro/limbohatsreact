@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ItemCount from "../../ItemCount/ItemCount";
 import CartContext from "../../../context/CartContext";
 import BtnBack from "../../BtnBack/BtnBack";
-import styles from './itemDetail.module.css';
+{/*import styles from './itemDetail.module.css';*/}
 
 
 
@@ -42,7 +42,7 @@ const ItemDetail = ({ product }) => {
                 <BtnBack to="/" />
                 <div className="container d-flex flex-column flex-lg-row justify-content-center mt-5">
                     <div className="me-2 col-7 text-center">
-                        <img src={`../src/assets/gorras/${product.img}`} className={styles.imgStyle} alt="gorra" />
+                        <img src={`../src/assets/gorras/${product.img}`} style={{ width: "40rem"}} alt="gorra" />
                     </div>
                     <div className="ms-2 col-5">
                         <h2>{product.name}</h2>
